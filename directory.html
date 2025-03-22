@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Directory Architecture for Natseer (Y-Diet Project)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #4caf50;
+    }
+    ul {
+      list-style: none;
+      padding-left: 20px;
+    }
+    li {
+      margin: 5px 0;
+    }
+    /* Folder and File Icons */
+    .folder::before {
+      content: "📂 ";
+    }
+    .file::before {
+      content: "📄 ";
+    }
+    /* Back to Home Button Styles */
+    .back-button-container {
+      margin-bottom: 20px;
+    }
+    .back-button {
+      padding: 12px 24px;
+      background: linear-gradient(45deg, #4CAF50, #2E7D32);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    .back-button:hover {
+      background: linear-gradient(45deg, #45a049, #1e7d32);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <!-- Back to Home Button at the top -->
+  <div class="back-button-container">
+    <button class="back-button" type="button" onclick="window.location.href='index.html'">
+      ← Back to Home
+    </button>
+  </div>
+
+  <h1>Directory Architecture for Natseer (Y-Diet Project)</h1>
+  <ul>
+    <li class="folder">Natseer_Y-Diet_Project/
+      <ul>
+        <li class="folder">Phase_1_Business_Setup_Infrastructure/
+          <ul>
+            <li class="file">01_Find_and_Rent_Office_Space.docx</li>
+            <li class="file">02_Register_Natseer_Business_Legalization.docx</li>
+            <li class="file">03_Obtain_Export_Certifications.docx</li>
+            <li class="file">04_Find_Warehouse_Storage.docx</li>
+            <li class="file">05_Business_Plan_Budget.docx</li>
+            <li class="file">06_Set_Up_Working_Team.docx</li>
+            <li class="file">07_Accounting_Record_Keeping.xlsx</li>
+            <li class="file">08_Business_Bank_Account_Funds.docx</li>
+            <li class="folder">09_Company_Branding_Kit/</li>
+            <li class="file">10_Target_Audience_Market_Positioning.docx</li>
+          </ul>
+        </li>
+        <li class="folder">Phase_2_Y-Diet_Product_Portfolio/
+          <ul>
+            <li class="file">11_Define_Product_Categories.docx</li>
+            <li class="file">12_Standardize_Product_Recipes.docx</li>
+            <li class="file">13_Source_Organic_Ingredients.xlsx</li>
+            <li class="file">14_Sample_Batch_Nutritional_Testing.docx</li>
+            <li class="file">15_Finalize_Packaging_Weight_Labeling.docx</li>
+            <li class="file">16_Legal_Labeling_Requirements.docx</li>
+            <li class="file">17_Pricing_Structure_Calculation.xlsx</li>
+            <li class="file">18_Shelf_Life_Storage_Tests.docx</li>
+            <li class="folder">19_Product_Catalog_Marketing_Materials/
+              <ul>
+                <li class="file">Brochures.docx</li>
+              </ul>
+            </li>
+            <li class="file">20_Pilot_Sales_Inventory_Preparation.xlsx</li>
+          </ul>
+        </li>
+        <li class="folder">Phase_3_Supplier_Procurement/
+          <ul>
+            <li class="file">21_List_Contact_Suppliers.xlsx</li>
+            <li class="file">22_Supplier_Contracts_Negotiations.docx</li>
+            <li class="file">23_Eco-Friendly_Packaging_Suppliers.xlsx</li>
+            <li class="file">24_Supplier_Evaluation_Checklist.docx</li>
+            <li class="file">25_Procurement_Stock_Management.xlsx</li>
+            <li class="file">26_Backup_Suppliers_List.docx</li>
+            <li class="file">27_Raw_Materials_Trial_Batch_Orders.xlsx</li>
+            <li class="file">28_Inventory_Management_System.docx</li>
+            <li class="file">29_Supplier_Payment_Credit_Policy.docx</li>
+            <li class="file">30_Quality_Checks_Incoming_Materials.docx</li>
+          </ul>
+        </li>
+        <li class="folder">Phase_4_Production_Packaging/
+          <ul>
+            <li class="file">31_Find_Rent_Manufacturing_Unit.docx</li>
+            <li class="file">32_Purchase_Processing_Equipment.xlsx</li>
+            <li class="file">33_Weight_Labeling_Batch_Tracking.xlsx</li>
+            <li class="file">34_Production_SOPs.docx</li>
+            <li class="file">35_Food_Safety_Hygiene_Training.docx</li>
+            <li class="file">36_Trial_Batch_Production.docx</li>
+            <li class="file">37_Final_Quality_Safety_Tests.docx</li>
+            <li class="file">38_Scale_Production_Demand_Analysis.xlsx</li>
+            <li class="file">39_Production_Supply_Inventory_Integration.xlsx</li>
+            <li class="file">40_Waste_Management_Sustainability.docx</li>
+          </ul>
+        </li>
+        <li class="folder">Phase_5_Storage_Distribution_Launch/
+          <ul>
+            <li class="file">41_Warehouse_Stocking_Retrieval.docx</li>
+            <li class="file">42_AI_Inventory_Forecasting.xlsx</li>
+            <li class="file">43_Logistics_Delivery_Partners_List.docx</li>
+            <li class="file">44_Automated_Order_Processing.n8n</li>
+            <li class="file">45_Natseer_E-Commerce_Store_Setup.docx</li>
+            <li class="file">46_Digital_Marketing_Strategy.pdf</li>
+            <li class="file">47_Customer_Support_Returns.docx</li>
+            <li class="file">48_B2B_Distribution_Sales_Model.docx</li>
+            <li class="file">49_First_Sales_Customer_Feedback.xlsx</li>
+            <li class="file">50_Scale_Production_Export_Expansion.docx</li>
+          </ul>
+        </li>
+        <li class="folder">Execution_Timeline/
+          <ul>
+            <li class="file">Month_1-2_Business_Setup_Licensing.xlsx</li>
+            <li class="file">Month_3-4_Supplier_Production.xlsx</li>
+            <li class="file">Month_5-6_Manufacturing_Inventory_Order_System.xlsx</li>
+            <li class="file">Month_7-8_Market_Launch_Sales.xlsx</li>
+            <li class="file">Month_9-12_Scaling_Expansion.xlsx</li>
+          </ul>
+        </li>
+        <li class="folder">Next_Steps_Expansion/
+          <ul>
+            <li class="file">Scale_Production_Automation.docx</li>
+            <li class="file">Expand_B2B_Export_Sales.docx</li>
+            <li class="file">Expand_B2C_Export_Sales.docx</li>
+            <li class="file">Cost_Optimization_Profit_Margins.xlsx</li>
+            <li class="file">New_Functional_Food_Development.docx</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Natseer Y-Diet - All-in-One Operations Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Include Chart.js from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      margin-top: 0;
+      text-align: center;
+    }
+    
+    /* Filter Bar */
+    #filterBar {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    #filterBar .filter-btn {
+      background: #4CAF50;
+      border: none;
+      color: #fff;
+      padding: 8px 16px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #filterBar .filter-btn:hover,
+    #filterBar .filter-btn.active {
+      background: #388e3c;
+    }
+    
+    /* Dashboard Grid */
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    
+    /* Card Styles */
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+    }
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    
+    /* Chart Container */
+    .chart-container {
+      position: relative;
+      height: 220px; /* Adjust as needed */
+    }
+    
+    /* Table & Scrolling */
+    .table-container {
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 500px;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background-color: #4CAF50;
+      color: #fff;
+    }
+    
+    /* Low Stock Highlight */
+    .low-stock {
+      color: red;
+      font-weight: bold;
+    }
+    
+    /* Simple List Styling */
+    ul {
+      margin-top: 10px;
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Natseer Y-Diet - All-in-One Operations Dashboard</h1>
+    <!-- Back to Home Button at the top -->
+  <div class="back-button-container">
+    <button class="back-button" type="button" onclick="window.location.href='index.html'">
+      ← Back to Home
+    </button>
+  </div>
+  <!-- Filter Bar -->
+  <div id="filterBar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="sales">Sales</button>
+    <button class="filter-btn" data-filter="finance">Finance</button>
+    <button class="filter-btn" data-filter="forecasting">Forecasting</button>
+    <button class="filter-btn" data-filter="compliance">Compliance</button>
+    <button class="filter-btn" data-filter="orders">Orders</button>
+    <button class="filter-btn" data-filter="logistics">Logistics</button>
+    <button class="filter-btn" data-filter="returns">Returns</button>
+    <button class="filter-btn" data-filter="production">Production</button>
+    <button class="filter-btn" data-filter="quality">Quality</button>
+    <button class="filter-btn" data-filter="inventory">Inventory</button>
+    <button class="filter-btn" data-filter="procurement">Procurement</button>
+  </div>
+
+  <!-- Dashboard Container -->
+  <div class="dashboard">
+  
+    <!-- Card 1: Multi-Channel Sales Integration (Sales) -->
+    <div class="card" data-category="sales">
+      <h2>Multi-Channel Sales Integration</h2>
+      <p>Syncing orders from multiple platforms:</p>
+      <ul>
+        <li>✅ Amazon: 20 Orders Processed</li>
+        <li>✅ Flipkart: 15 Orders in Queue</li>
+        <li>✅ Shopify: 10 Orders Completed</li>
+        <li>✅ B2B Clients: 5 Bulk Orders Pending</li>
+      </ul>
+    </div>
+    
+    <!-- Card 2: Automated Order Processing (Sales) -->
+    <div class="card" data-category="sales">
+      <h2>Automated Order Processing</h2>
+      <div class="table-container">
+        <table>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Status</th>
+            <th>Processing Time</th>
+          </tr>
+          <tr>
+            <td>ORD-101</td>
+            <td>Rajesh Kumar</td>
+            <td>Shipped</td>
+            <td>2 Days</td>
+          </tr>
+          <tr>
+            <td>ORD-102</td>
+            <td>Priya Sharma</td>
+            <td>Processing</td>
+            <td>1 Day</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    
+    <!-- Card 3: Customer Order Insights (Sales) -->
+    <div class="card" data-category="sales">
+      <h2>Customer Order Insights</h2>
+      <p>High-demand products & repeat purchases:</p>
+      <ul>
+        <li>🔹 Protein Pack - 50% Repeat Purchases</li>
+        <li>🔹 Herbal Mix - 30% Sales Growth</li>
+        <li>🔹 Detox Kit - 20% Increased Demand</li>
+      </ul>
+    </div>
+    
+    <!-- Card 4: Revenue & Profit Analysis (Finance) -->
+    <div class="card" data-category="finance">
+      <h2>Revenue & Profit Analysis</h2>
+      <div class="table-container">
+        <table>
+          <tr>
+            <th>Month</th>
+            <th>Revenue</th>
+            <th>Profit</th>
+          </tr>
+          <tr>
+            <td>April</td>
+            <td>$10,000</td>
+            <td>$3,500</td>
+          </tr>
+          <tr>
+            <td>May</td>
+            <td>$12,500</td>
+            <td>$4,200</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    
+    <!-- Card 5: Cost Tracking & Breakdown (Finance) -->
+    <div class="card" data-category="finance">
+      <h2>Cost Tracking & Breakdown</h2>
+      <p>Overall operational costs:</p>
+      <ul>
+        <li>🛒 Procurement: $3,000</li>
+        <li>🏭 Production: $2,500</li>
+        <li>📦 Storage: $1,200</li>
+        <li>🚚 Logistics: $800</li>
+      </ul>
+    </div>
+    
+    <!-- Card 6: AI-Based Demand Forecasting (Forecasting) -->
+    <div class="card" data-category="forecasting">
+      <h2>AI-Based Demand Forecasting</h2>
+      <ul>
+        <li>Expected Growth: 15% Next Quarter</li>
+        <li>Top-Selling Product: Protein Pack</li>
+        <li>Forecasted Sales: 1,200 Units</li>
+      </ul>
+    </div>
+    
+    <!-- Card 7: Export Readiness Score (Compliance) -->
+    <div class="card" data-category="compliance">
+      <h2>Export Readiness Score</h2>
+      <ul>
+        <li>✅ FSSAI Certification: Approved</li>
+        <li>✅ APEDA Certification: Approved</li>
+        <li>⚠️ FDA Certification: Pending</li>
+      </ul>
+    </div>
+    
+    <!-- Card 8: Order Fulfillment Tracking (Orders) -->
+    <div class="card" data-category="orders">
+      <h2>Order Fulfillment Tracking</h2>
+      <div class="table-container">
+        <table>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Status</th>
+            <th>Delivery Date</th>
+          </tr>
+          <tr>
+            <td>ORD-001</td>
+            <td>John Doe</td>
+            <td>Shipped</td>
+            <td>2025-05-12</td>
+          </tr>
+          <tr>
+            <td>ORD-002</td>
+            <td>Jane Smith</td>
+            <td>Processing</td>
+            <td>2025-05-15</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    
+    <!-- Card 9: Real-Time Delivery Tracking (Logistics) -->
+    <div class="card" data-category="logistics">
+      <h2>Real-Time Delivery Tracking</h2>
+      <ul>
+        <li>✅ Shiprocket: 5 Deliveries in Transit</li>
+        <li>✅ Blue Dart: 3 Deliveries Completed</li>
+      </ul>
+    </div>
+    
+    <!-- Card 10: Route Optimization (Logistics) -->
+    <div class="card" data-category="logistics">
+      <h2>Route Optimization</h2>
+      <p>AI-based route planning for cost reduction:</p>
+      <ul>
+        <li>Suggested Route: Karur ➝ Chennai ➝ Bangalore</li>
+        <li>Estimated Savings: 15% on fuel costs</li>
+      </ul>
+    </div>
+    
+    <!-- Card 11: Returns & Reverse Logistics (Returns) -->
+    <div class="card" data-category="returns">
+      <h2>Returns & Reverse Logistics</h2>
+      <div class="table-container">
+        <table>
+          <tr>
+            <th>Return ID</th>
+            <th>Product</th>
+            <th>Reason</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>RET-001</td>
+            <td>Protein Pack</td>
+            <td>Damaged</td>
+            <td>Refunded</td>
+          </tr>
+          <tr>
+            <td>RET-002</td>
+            <td>Herbal Mix</td>
+            <td>Wrong Item</td>
+            <td>Replacement Sent</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    
+    <!-- Card 12: Production Scheduling (Production) -->
+    <div class="card" data-category="production">
+      <h2>Production Scheduling</h2>
+      <div class="table-container">
+        <table>
+          <tr>
+            <th>Batch ID</th>
+            <th>Product</th>
+            <th>Scheduled Date</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>BATCH-001</td>
+            <td>Protein Packs</td>
+            <td>2025-05-15</td>
+            <td>Planned</td>
+          </tr>
+          <tr>
+            <td>BATCH-002</td>
+            <td>Herbal Mix</td>
+            <td>2025-05-20</td>
+            <td>Processing</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    
+    <!-- Card 13: Raw Material Usage (Production) -->
+    <div class="card" data-category="production">
+      <h2>Raw Material Usage</h2>
+      <div class="table-container">
+        <table>
+          <tr>
+            <th>Material</th>
+            <th>Batch Used</th>
+            <th>Remaining Stock</th>
+          </tr>
+          <tr>
+            <td>Organic Grains</td>
+            <td>100 kg</td>
+            <td class="low-stock">50 kg (Low)</td>
+          </tr>
+          <tr>
+            <td>Herbal Ingredients</td>
+            <td>75 kg</td>
+            <td>200 kg</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    
+    <!-- Card 14: Quality Assurance Panel (Quality) -->
+    <div class="card" data-category="quality">
+      <h2>Quality Assurance Panel</h2>
+      <p>Food Safety Compliance:</p>
+      <ul>
+        <li>✅ FSSAI Standards Met</li>
+        <li>✅ APEDA Certification Approved</li>
+        <li>⚠️ Batch B002 - Awaiting Lab Test</li>
+      </ul>
+    </div>
+    
+    <!-- Card 15: Waste Management Tracking (Quality) -->
+    <div class="card" data-category="quality">
+      <h2>Waste Management Tracking</h2>
+      <p>Monitoring Sustainability Metrics:</p>
+      <ul>
+        <li>Food Waste Reduction: 85% Efficiency</li>
+        <li>Recycled Packaging Used: 90%</li>
+        <li>Carbon Footprint Reduction: 70%</li>
+      </ul>
+    </div>
+    
+    <!-- Card 16: Live Inventory Tracking (Inventory) -->
+    <div class="card" data-category="inventory">
+      <h2>Live Inventory Tracking</h2>
+      <div class="chart-container">
+        <canvas id="inventoryChart"></canvas>
+      </div>
+    </div>
+    
+    <!-- Card 17: Sales & Orders Overview (Sales) -->
+    <div class="card" data-category="sales">
+      <h2>Sales & Orders Overview</h2>
+      <div class="chart-container">
+        <canvas id="salesChart"></canvas>
+      </div>
+    </div>
+    
+    <!-- Card 18: Supplier & Procurement (Procurement) -->
+    <div class="card" data-category="procurement">
+      <h2>Supplier & Procurement</h2>
+      <p>Managing supplier contracts & raw materials procurement:</p>
+      <ul>
+        <li>Bulk Discounts Negotiated</li>
+        <li>Backup Supplier Onboarded</li>
+        <li>Monthly Stock Review Pending</li>
+      </ul>
+    </div>
+    
+    <!-- Card 19: Logistics & Distribution (Logistics) -->
+    <div class="card" data-category="logistics">
+      <h2>Logistics & Distribution</h2>
+      <p>Real-time tracking of shipments and deliveries:</p>
+      <ul>
+        <li>Shiprocket & Bluedart Integrated</li>
+        <li>Regional Distributors: 4 Active Partnerships</li>
+        <li>Export Logistics: APEDA-certified channels</li>
+      </ul>
+    </div>
+    
+  </div> <!-- End .dashboard -->
+
+  <!-- Chart.js Scripts -->
+  <script>
+    // Live Inventory Bar Chart
+    const invCtx = document.getElementById('inventoryChart').getContext('2d');
+    const inventoryChart = new Chart(invCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Protein Powder', 'Herbal Mix', 'Organic Grains', 'Spices', 'Nuts'],
+        datasets: [{
+          label: 'Stock (kg)',
+          data: [200, 120, 50, 80, 60],
+          backgroundColor: ['#42a5f5', '#66bb6a', '#ffca28', '#ef5350', '#ab47bc']
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: { ticks: { color: '#333' } },
+          y: { beginAtZero: true, ticks: { color: '#333' } }
+        },
+        plugins: {
+          legend: { labels: { color: '#333' } }
+        }
+      }
+    });
+
+    // Sales Line Chart
+    const salesCtx = document.getElementById('salesChart').getContext('2d');
+    const salesChart = new Chart(salesCtx, {
+      type: 'line',
+      data: {
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+        datasets: [{
+          label: 'Orders',
+          data: [100, 180, 130, 210],
+          fill: false,
+          borderColor: '#f57c00',
+          tension: 0.1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: { ticks: { color: '#333' } },
+          y: { beginAtZero: true, ticks: { color: '#333' } }
+        },
+        plugins: {
+          legend: { labels: { color: '#333' } }
+        }
+      }
+    });
+
+    // Filter Dashboard Cards
+    const filterBtns = document.querySelectorAll('#filterBar .filter-btn');
+    const cards = document.querySelectorAll('.dashboard .card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Remove active class from all buttons
+        filterBtns.forEach(b => b.classList.remove('active'));
+        // Set active class to clicked button
+        this.classList.add('active');
+        const filter = this.getAttribute('data-filter');
+
+        cards.forEach(card => {
+          // If filter is "all" or card's category matches filter, show it; otherwise hide.
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
